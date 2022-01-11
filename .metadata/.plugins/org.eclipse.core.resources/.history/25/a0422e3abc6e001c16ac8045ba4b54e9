@@ -1,0 +1,22 @@
+package com.externalapi.app.ws.repository;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.externalapi.app.ws.model.Merchant;
+
+public interface MerchantRepository extends CrudRepository<Merchant, Integer> {
+	public static final JdbcTemplate jdbctemplate = new JdbcTemplate();
+	
+	public static ArrayList findId() {
+		String merchant_id;
+		ArrayList list = new ArrayList();
+		List<Map<String, Object>> rows = jdbctemplate.queryForList("select id from merchant");
+	}
+
+}

@@ -1,0 +1,21 @@
+package com.externalapi.app.ws;
+
+import org.springframework.boot.jdbc.DataSourceBuilder;
+
+@Configuration
+public class DataSourceConfig {
+
+	@Bean
+	public DataSource getDataSource() {
+		DataSource dataSource = null;
+		DataSourceBuilder builder = DataSourceBuilder.create();
+		builder.url("");
+		builder.username("");
+		builder.password("");
+		builder.driverClassName("");
+		
+		dataSource = builder.build();
+		
+		return dataSource;
+	}
+}

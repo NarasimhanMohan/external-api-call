@@ -1,0 +1,48 @@
+package com.externalapi.app.ws.controller;
+
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+//import com.externalapi.app.ws.dbutil.DBUtil;
+import com.externalapi.app.ws.model.Merchant;
+import com.externalapi.app.ws.repository.MerchantRepository;
+
+@RestController
+public class ApiController {
+	
+	@Autowired
+	MerchantRepository merchantRepository;
+	//public DBUtil dbutil;
+	
+	 private final RestTemplate restTemplate;
+	 
+	 public ApiController(RestTemplateBuilder restTemplateBuilder) {
+	        this.restTemplate = restTemplateBuilder.build();
+	    }
+	 
+		@GetMapping(value="/callemployees")
+		private String getmerchat() {
+			//String uri = "https://gorest.co.in/public/v1/users";
+			Merchant merchant = new Merchant();
+			String uri = "https://reqres.in/api/users/{id}";
+			String response = null;
+			//ArrayList arrlist = dbutil.merchatId();
+			//System.out.print(arrlist);
+			//ArrayList Full_result = new ArrayList();
+			merchantRepository.findAll();
+			/*int a = merchant.getId();
+
+			System.out.print(a);*/
+			RestTemplate restTemplate = new RestTemplate();
+			response = restTemplate.getForObject(uri, String.class,1);
+			return response;
+
+			//Full_result.add(response);
+		}
+
+}

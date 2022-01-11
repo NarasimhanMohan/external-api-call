@@ -1,0 +1,8 @@
+package com.externalapi.app.ws.model;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Merchant {
+
+}

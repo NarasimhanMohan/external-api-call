@@ -1,0 +1,36 @@
+package com.externalapi.app.ws.repository;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class MerchantRepository {
+	
+	@Autowired
+	static
+	JdbcTemplate jdbcTemplate;
+	
+	private static final String SQL = "select id from MERCHANT";
+	
+	public static int findId()
+	{
+		String merchant_id;
+		ArrayList list = new ArrayList();
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(SQL);
+		
+		for(Map<String, Object> row : rows)
+		{
+			merchant_id = (String)row.get("id");
+			System.out.print(merchant_id);
+			list.add(merchant_id);
+		}
+		int a= (int) list.get(0);
+		return a;
+	}
+
+}

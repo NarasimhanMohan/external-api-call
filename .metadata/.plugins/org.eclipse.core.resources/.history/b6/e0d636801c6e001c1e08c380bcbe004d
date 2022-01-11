@@ -1,0 +1,5 @@
+package com.externalapi.app.ws.controller;
+
+public class ApiController {
+
+}

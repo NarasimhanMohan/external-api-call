@@ -1,0 +1,10 @@
+package com.externalapi.app.ws.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.externalapi.app.ws.model.Merchant;
+
+public interface MerchantRepository extends CrudRepository<Merchant, Integer> {
+
+
+}

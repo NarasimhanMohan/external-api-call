@@ -1,0 +1,5 @@
+package com.externalapi.app.ws.model;
+
+public class Product {
+
+}
